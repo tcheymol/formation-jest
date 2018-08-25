@@ -10,6 +10,10 @@ describe('starwars service', () => {
     it('should call starwars api with the given id', async () => {
       const luke = await getStarwarsCharacter(1);
       expect(luke.name).toBe('Jabba the Hutt');
+      expect(makeGetRequest).toHaveBeenCalledTimes(1);
+      expect(makeGetRequest).toHaveBeenCalledWith(
+        'https://swapi.co/api/people/1',
+      );
     });
   });
 });
