@@ -7,6 +7,10 @@ jest.mock('../networking', () => ({
 
 describe('starwars service', () => {
   describe('getStarwarsCharacter function', () => {
+    afterAll(() => {
+      makeGetRequest.mockClear();
+    });
+
     it('should call starwars api to get the first person if we pas 1', async () => {
       const luke = await getStarwarsCharacter(1);
       expect(luke.name).toBe('Jabba the Hutt');
