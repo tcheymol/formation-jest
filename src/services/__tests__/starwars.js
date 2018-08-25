@@ -22,8 +22,9 @@ describe('starwars service', () => {
   });
 
   it('should call starwars api to get the second person if we pas 2', async () => {
+    makeGetRequest.mockImplementation(() => ({ name: 'Leia Organa' }));
     const luke = await getStarwarsCharacter(2);
-    expect(luke.name).toBe('Jabba the Hutt');
+    expect(luke.name).toBe('Leia Organa');
     expect(makeGetRequest).toHaveBeenCalledTimes(1);
     expect(makeGetRequest).toHaveBeenCalledWith(
       'https://swapi.co/api/people/2',
