@@ -1,3 +1,4 @@
+// starwars.js
 import { makeGetRequest } from './networking';
 
 export const getStarwarsCharacter = async id => {
