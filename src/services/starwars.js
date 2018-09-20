@@ -1,6 +1,8 @@
-export const getStarwarsCharacter = async id => {
-  const response = await fetch(`https://swapi.co/api/people/${id}`);
-  const body = await response.json();
+// starwars.js
+import request from 'superagent';
 
-  return body;
+export const getStarwarsCharacter = async id => {
+  const response = await request.get(`https://swapi.co/api/people/${id}`);
+
+  return response.body;
 };
